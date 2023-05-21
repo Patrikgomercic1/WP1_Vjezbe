@@ -9,7 +9,6 @@ use restoran;
 create table kategorija(
 	sifra int not null primary key identity(1,1),
 	naziv varchar(25),
-	jelo int
 );
 
 create table jelo(
@@ -17,7 +16,8 @@ create table jelo(
 	naziv varchar(25),
 	cijena decimal(6,2), 
 	sastojci varchar(50),
-	velièina varchar(15)
+	velièina varchar(15),
+	kategorija int
 );
 
 create table pice(
@@ -28,7 +28,11 @@ create table pice(
 );
 
 create table jelo_pice(
-	sifra int not null primary key identity(1,1),
 	jelo int,
 	pice int
 );
+
+
+alter table jelo add foreign key (kategorija) references kategorija(sifra);
+alter table jelo_pice add foreign key (jelo) references jelo(sifra);
+alter table jelo_pice add foreign key (pice) references pice(sifra);

@@ -18,5 +18,10 @@ create table knjiga(
 	sifra int not null primary key identity(1,1),
 	vrsta varchar(25),
 	naziv varchar(25),
-	duzina int
+	duzina int,
+	citatelj int
 );
+
+
+alter table citatelj add foreign key (vlasnik) references citatelj(sifra);
+alter table knjiga add foreign key (citatelj) references citatelj(sifra);

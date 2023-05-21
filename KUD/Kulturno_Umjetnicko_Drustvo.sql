@@ -28,3 +28,8 @@ create table clan_nastup(
 	clan int,
 	nastup int
 );
+
+
+alter table clan_nastup add foreign key (clan) references clan(sifra);
+alter table clan_nastup add foreign key (nastup) references nastup(sifra);
+alter table nastup add foreign key (mjesto) references mjesto(sifra);

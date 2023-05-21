@@ -30,3 +30,8 @@ create table proizvod_sirovina(
     proizvod int,
     sirovina int
 );
+
+
+alter table proizvod_sirovina add foreign key (proizvod) references proizvod(sifra);
+alter table proizvod_sirovina add foreign key (sirovina) references sirovina(sifra);
+alter table proizvod add foreign key (djelatnik) references djelatnik(sifra);

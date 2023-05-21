@@ -21,7 +21,11 @@ create table posao(
 );
 
 create table svecenik_posao(
-	sifra int not null primary key identity(1,1),
 	svecenik int,
 	posao int
 );
+
+
+alter table svecenik add foreign key (nadredjeni) references svecenik(sifra);
+alter table svecenik_posao add foreign key (svecenik) references svecenik(sifra);
+alter table svecenik_posao add foreign key (posao) references posao(sifra);

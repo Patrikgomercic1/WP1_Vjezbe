@@ -28,3 +28,8 @@ create table dijete_skupina(
 	dijete int,
 	skupina int
 );
+
+
+alter table skupina add foreign key (teta) references teta(sifra);
+alter table dijete_skupina add foreign key (dijete) references dijete(sifra);
+alter table dijete_skupina add foreign key (skupina) references skupina(sifra);

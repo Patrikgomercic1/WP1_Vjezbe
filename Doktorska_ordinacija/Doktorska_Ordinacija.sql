@@ -28,11 +28,15 @@ create table doktor(
 	kontakt int
 );
 
-create table lijeèenje(
+create table lijecenje(
 	sifra int not null primary key identity(1,1),
 	datum datetime,
 	pacijent int,
 	medicinska_sestra int,
 	doktor int
-
 );
+
+
+alter table lijecenje add foreign key (pacijent) references pacijent(sifra);
+alter table lijecenje add foreign key (medicinska_sestra) references medicinska_sestra(sifra);
+alter table lijecenje add foreign key (doktor) references doktor(sifra);

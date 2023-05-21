@@ -27,8 +27,12 @@ create table sef(
 );
 
 create table trgovina_radnik(
-	sifra int not null primary key identity(1,1),
 	trgovina int,
 	radnik int
-
 );
+
+
+alter table trgovina_radnik add foreign key (trgovina) references trgovina(sifra);
+alter table trgovina_radnik add foreign key (radnik) references radnik(sifra);
+alter table sef add foreign key (radnik) references radnik(sifra);
+alter table sef add foreign key (trgovina) references trgovina(sifra);

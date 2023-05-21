@@ -27,3 +27,7 @@ create table suradnik(
 	prezime varchar(20),
 	firma varchar(40)
 );
+
+
+alter table obrana add foreign key (klijent) references klijent(sifra);
+alter table obrana add foreign key (suradnik) references suradnik(sifra);

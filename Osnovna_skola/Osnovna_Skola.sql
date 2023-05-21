@@ -27,8 +27,11 @@ create table uciteljica(
 );
 
 create table radionica_dijete(
-	sifra int not null primary key identity(1,1),
 	radionica int,
 	dijete int
-
 );
+
+
+alter table radionica_dijete add foreign key (radionica) references radionica(sifra);
+alter table radionica_dijete add foreign key (dijete) references dijete(sifra);
+alter table radionica add foreign key (uciteljica) references uciteljica(sifra);

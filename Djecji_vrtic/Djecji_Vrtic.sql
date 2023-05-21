@@ -33,3 +33,6 @@ create table strucnasprema(
 );
 
 alter table odgajateljica add foreign key (strucnasprema) references strucnasprema(sifra);
+alter table dijete add foreign key (skupina) references skupina(sifra);
+alter table dijete_skupina add foreign key (dijete) references dijete(sifra);
+alter table skupina add foreign key (odgajateljica) references odgajateljica(sifra);

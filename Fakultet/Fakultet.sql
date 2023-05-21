@@ -10,7 +10,8 @@ create table student(
 	sifra int not null primary key identity(1,1),
 	ime varchar(20) not null,
 	prezime varchar(20) not null,
-	oib char(11)
+	oib char(11),
+	kolegij int
 );
 
 create table kolegij(
@@ -25,8 +26,11 @@ create table rok(
 );
 
 create table student_rok(
-	sifra int not null primary key identity(1,1),
 	student int,
 	rok int
-
 );
+
+
+alter table student_rok add foreign key (student) references student(sifra);
+alter table student_rok add foreign key (rok) references rok(sifra);
+alter table student add foreign key (kolegij) references kolegij(sifra);

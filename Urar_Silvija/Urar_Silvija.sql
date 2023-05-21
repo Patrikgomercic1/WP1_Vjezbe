@@ -24,7 +24,8 @@ create table korisnik(
 create table popravak(
 	sifra int not null primary key identity(1,1),
 	datum datetime,
-	cijena decimal(6,2)
+	cijena decimal(6,2),
+	segrt int
 );
 
 create table segrt(
@@ -36,7 +37,12 @@ create table segrt(
 );
 
 create table sat_popravak(
-	sifra int not null primary key identity(1,1),
 	sat int,
 	popravak int
 );
+
+
+alter table sat_popravak add foreign key (sat) references sat(sifra);
+alter table sat_popravak add foreign key (popravak) references popravak(sifra);
+alter table popravak add foreign key (segrt) references segrt(sifra);
+alter table sat add foreign key (korisnik) references korisnik(sifra);

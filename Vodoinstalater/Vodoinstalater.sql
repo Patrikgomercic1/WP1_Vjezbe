@@ -31,3 +31,8 @@ create table kvar_popravak(
 	kvar int,
 	popravak int
 );
+
+
+alter table kvar_popravak add foreign key (kvar) references kvar(sifra);
+alter table kvar_popravak add foreign key (popravak) references popravak(sifra);
+alter table popravak add foreign key (segrt) references segrt(sifra);

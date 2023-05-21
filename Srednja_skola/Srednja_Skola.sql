@@ -28,8 +28,11 @@ create table profesor(
 );
 
 create table razred_profesor(
-	sifra int not null primary key identity(1,1),
 	razred int,
 	profesor int
-
 );
+
+
+alter table razred add foreign key (ucenik) references ucenik(sifra);
+alter table razred_profesor add foreign key (razred) references razred(sifra);
+alter table razred_profesor add foreign key (profesor) references profesor(sifra);

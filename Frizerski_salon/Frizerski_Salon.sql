@@ -34,3 +34,8 @@ create table termin(
 	korisnik int, 
 	usluga int
 );
+
+
+alter table termin add foreign key (djelatnica) references djelatnica(sifra);
+alter table termin add foreign key (korisnik) references korisnik(sifra);
+alter table termin add foreign key (usluga) references usluga(sifra);

@@ -9,7 +9,8 @@ create table djelatnik(
 	sifra int not null primary key identity(1,1),
 	ime varchar(20) not null,
 	prezime varchar(20) not null,
-	oib char(11)
+	oib char(11),
+	životinja int
 );
 
 create table životinja(
@@ -26,7 +27,12 @@ create table prostor(
 	naziv varchar(30)
 );
 
-create table djelatnik_prostor(
-	djelatnik int,
+create table životinja_prostor(
+	životinja int,
 	prostor int
 );
+
+
+alter table životinja_prostor add foreign key (životinja) references životinja(sifra);
+alter table životinja_prostor add foreign key (prostor) references prostor(sifra);
+alter table djelatnik add foreign key (životinja) references životinja(sifra);

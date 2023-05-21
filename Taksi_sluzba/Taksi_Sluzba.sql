@@ -17,7 +17,8 @@ create table vozac(
 	ime varchar(20) not null,
 	prezime varchar(20) not null,
 	oib char(11),
-	kontakt int
+	kontakt int,
+	vozilo int
 );
 
 create table putnik(
@@ -29,11 +30,17 @@ create table putnik(
 create table voznja(
 	sifra int not null primary key identity(1,1),
 	trajanje datetime,
-	cijena decimal(8,2)
+	cijena decimal(8,2),
+	vozac int
 );
 
 create table voznja_putnik(
-	sifra int not null primary key identity(1,1),
 	voznja int,
 	putnik int
 );
+
+
+alter table vozac add foreign key (vozilo) references vozilo(sifra);
+alter table voznja_putnik add foreign key (voznja) references voznja(sifra);
+alter table voznja_putnik add foreign key (putnik) references putnik(sifra);
+alter table voznja add foreign key (vozac) references vozac(sifra);
