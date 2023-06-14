@@ -59,6 +59,6 @@ values
 	(2,'Leptiriæi','1'),
 	(3,'Pèelice','3');
 
-update skupina set naziv='' where sifra=3
+update skupina set naziv='Tigrovi' where sifra=3
 
 --drop database if exists DjecjiVrtic;
