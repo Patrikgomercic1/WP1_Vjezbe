@@ -10,7 +10,7 @@ create table klijent(
 	sifra int not null primary key identity(1,1),
 	ime varchar(20),
 	prezime varchar(20),
-	optužba varchar(30)
+	optuzba varchar(30)
 );
 
 create table obrana(
@@ -25,9 +25,26 @@ create table suradnik(
 	sifra int not null primary key identity(1,1),
 	ime varchar(20),
 	prezime varchar(20),
-	firma varchar(40)
+	firma varchar(70)
 );
 
 
 alter table obrana add foreign key (klijent) references klijent(sifra);
 alter table obrana add foreign key (suradnik) references suradnik(sifra);
+
+
+insert into suradnik(sifra,ime,prezime,firma)
+values
+	(1,'Davor','Abramoviæ','ODVJETNIÈKO DRUŠTVO VIDOVIÆ & PARTNERI d.o.o.'),
+	(2,'Vinko','Agniæ','CRNKIÆ GOTOVAC & ERCEG ODVJETNIÈKO DRUŠTVO d.o.o.'),
+	(3,'Dora', 'Adžiæ','MATEKOVIÆ & partneri Odvjetnièko društvo d.o.o.');
+
+insert into klijent(sifra,ime,prezime,optuzba)
+values
+	(1,'Mirko','Mirkoviæ','Teška kraða'),
+	(2,'Ante','Aniæ','Prijevara'),
+	(3,'Mirjana','Bosiæ','Razbojništvo');
+
+update klijent set ime='Antonio' where sifra=2
+
+--drop database if exists odvjetnik;

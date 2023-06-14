@@ -33,3 +33,19 @@ create table clan_nastup(
 alter table clan_nastup add foreign key (clan) references clan(sifra);
 alter table clan_nastup add foreign key (nastup) references nastup(sifra);
 alter table nastup add foreign key (mjesto) references mjesto(sifra);
+
+
+insert into clan(sifra,ime,prezime)
+values
+	(1,'Matija','Matovec'),
+	(2,'Nada','Rokiæ'),
+	(3,'Antea', 'Skopiæ');
+
+insert into mjesto(sifra,adresa)
+values
+	(1,'Vranovaèka ulica 22'),
+	(2,'Ulica Matije Gupca 55');
+
+	update clan set prezime='Matovec' where sifra=2
+
+--drop database if exists kulturno_umjetnicko_drustvo;

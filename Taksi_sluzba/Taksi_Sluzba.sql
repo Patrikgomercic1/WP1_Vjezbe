@@ -29,7 +29,7 @@ create table putnik(
 
 create table voznja(
 	sifra int not null primary key identity(1,1),
-	trajanje datetime,
+	dužina int,
 	cijena decimal(8,2),
 	vozac int
 );
@@ -44,3 +44,20 @@ alter table vozac add foreign key (vozilo) references vozilo(sifra);
 alter table voznja_putnik add foreign key (voznja) references voznja(sifra);
 alter table voznja_putnik add foreign key (putnik) references putnik(sifra);
 alter table voznja add foreign key (vozac) references vozac(sifra);
+
+
+insert into vozilo(sifra,oznaka,marka)
+values
+	(1,'ZG 8208-AS','Dacia Sandero'),
+	(2,'OS 123-AB','Dacia Duster'),
+	(3,'SB 360-OS','Volkswagen Passat');
+
+insert into vozac(sifra,ime,prezime,kontakt,vozilo)
+values
+	(1,'Mario','Majiæ','0953172464','2'),
+	(2,'Ana','Tajiæ','0925421828','1'),
+	(3,'Josip','Markoviæ','0953584139','3');
+
+update vozac set kontakt='0953174741' where sifra=1
+
+--drop database if exists taksi_sluzba;
