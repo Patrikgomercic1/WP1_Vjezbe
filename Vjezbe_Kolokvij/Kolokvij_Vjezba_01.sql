@@ -6,6 +6,7 @@ go
 use Kolokvij_vjezba_1
 
 
+
 --0
 create table sestra(
 	sifra int not null primary key identity(1,1),
@@ -91,28 +92,24 @@ alter table cura add foreign key (punac) references punac(sifra);
 
 
 --1
- select * from muskarac;
 insert into muskarac(bojaociju, maraka, zena)
 values
 	('Smedja', 1.50, 3),
 	('Plava', 20.20, 1),
 	('Zelena', 4.17, 2);
      
-select * from zena;
 insert into zena(kratkamajica, jmbag, bojaociju, sestra)
 values
 	('Smedja', 32455343, 'zelena', 2),
 	('Plava', 2782186, 'plava', 3),
 	('Zelena', 42786412, 'smedja', 1);
           
-select * from sestra;
 insert into sestra(haljina, hlace, narukvica)
 values	
 	('Plava', 'Zute', 1),
 	('Zuta', 'Zelene', 2),
 	('Zelena', 'Plave', 3);
 
-select * from svekar;
 insert into svekar(bojaociju, eura, majica)
 values	
 	('Plava', 2.00, 'Crna'),
@@ -122,39 +119,18 @@ values
 select * from sestra_svekar;
 insert into sestra_svekar(sestra, svekar) 
 values	
-	(1,3),
-	(2,2),
-	(3,1);
+	(1, 3),
+	(2, 2),
+	(3, 1);
 
 
 --2
-select * from cura;
-insert into cura(novcica, gustoca, ogrlica)
-values
-	(12.30, 1, 3),
-	(45.60, 2, 2),
-	(78.90, 3, 1);
-
-update cura set gustoca = 15.77;
+update cura set gustoca = 10;
 
 --3
-select * from mladic;
-insert into mladic(suknja, kuna, ekstrovertno, dukserica)
-values 
-	('Plava', 620.22, 1, 'Srebrna'),
-	('Crvena', 400.55, 1, 'Crna'),
-	('Ljubicasta', 202.32, 0, 'Ljubicasta'),
-	('Crna', 450.02, 0, 'Crvena'),
-	('Srebrna', 204.51, 0, 'Plava');
-
 delete from mladic where kuna > 15.78;
 
 --4
-select * from zena;
-insert into zena(hlace, kratkamajica, jmbag, bojaociju, sestra)
-values 
-	('Ana', 'Plava', 215624643, 'zelena', 1);
-
 select kratkamajica from zena where hlace like '%ana%'; 
 
 --5
